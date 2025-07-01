@@ -1,11 +1,14 @@
 import os
 import asyncio
-import nest_asyncio
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
-nest_asyncio.apply()
+IS_RAILWAY = os.getenv("RAILWAY_ENVIRONMENT") is not None
+
+if not IS_RAILWAY:
+    import nest_asyncio
+    nest_asyncio.apply()
 
 TOKEN = "7779612821:AAHkNicErmDf9Jux8jON49QQi-ZUCGxx528"
 GROUP_ID = -1002707585664
