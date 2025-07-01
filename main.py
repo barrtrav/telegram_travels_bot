@@ -1,11 +1,14 @@
+import os
 import asyncio
+import nest_asyncio
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
-import os
+nest_asyncio.apply()
 
 TOKEN = "7779612821:AAHkNicErmDf9Jux8jON49QQi-ZUCGxx528"
-GROUP_ID = int(os.getenv("-1002707585664"))
+GROUP_ID = -1002707585664
 
 async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     for member in update.message.new_chat_members:
